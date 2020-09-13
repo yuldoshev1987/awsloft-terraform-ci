@@ -1,6 +1,6 @@
 
 variable "region" {
-  default     = "eu-central-1"
+  default     = "us-east-1"
   description = "The region to deploy the cluster in, e.g: us-east-1."
 }
 
@@ -14,7 +14,7 @@ variable "environment" {
 terraform {
   required_version = ">= 0.10.5"
   backend "s3" {
-    bucket = "aws-loft-de-terraform"
+    bucket = "myterraform-state-2020"
     key    = "prod/terraform.tfstate"
     region = "eu-central-1"
     encrypt = true
@@ -25,7 +25,7 @@ terraform {
 data "terraform_remote_state" "default" {
   backend = "s3"
   config {
-    bucket = "aws-loft-de-terraform"
+    bucket = "myterraform-state-2020"
     key    = "prod/terraform.tfstate"
     region = "eu-central-1"
     encrypt = true
@@ -35,7 +35,7 @@ data "terraform_remote_state" "default" {
 
 # Define your AWS profile here
 provider "aws" {
-  region  = "eu-central-1"
+  region  = "us-east-1"
   version = "~> 1.3.0"
 }
 
