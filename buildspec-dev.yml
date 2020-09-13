@@ -30,9 +30,9 @@ phases:
       - cd "$CODEBUILD_SRC_DIR"
       - cd "environments/$TF_ENV/"
       - echo " building $TF_ENV"
-      - terraform init -no-color
-      - terraform plan -no-color
-      - terraform apply -no-color
+      - terraform init 
+      - terraform plan 
+      - terraform apply --auto-approve
 
   post_build:
     commands:
