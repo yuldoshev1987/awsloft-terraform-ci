@@ -16,7 +16,7 @@ terraform {
   backend "s3" {
     bucket = "myterraform-state-2020"
     key    = "prod/terraform.tfstate"
-    region = "eu-central-1"
+    region = "us-east-1"
     encrypt = true
 
   }
@@ -27,7 +27,7 @@ data "terraform_remote_state" "default" {
   config {
     bucket = "myterraform-state-2020"
     key    = "prod/terraform.tfstate"
-    region = "eu-central-1"
+    region = "us-east-1"
     encrypt = true
   }
 }
